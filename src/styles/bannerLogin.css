@@ -1,0 +1,20 @@
+.banner-login{
+    width: 500px;
+    height: 200px;
+    margin-top: 50px;
+}
+
+.logo-name{
+    display: flex; 
+    /*position:absolute;
+     left: 350px;
+     top:200px;
+     justify-content: center;*/
+}
+
+.logo-name h1{
+    font-size: 50px;
+}
+ .logo-name span{
+    color: #4630D9;
+ }
