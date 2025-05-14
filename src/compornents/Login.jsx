@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { User, Lock } from 'lucide-react'
+import { useNavigate } from 'react-router-dom' //Pour la redirection
 import '../styles/login.css'
 import '../styles/bannerLogin.css'
 import logo from '../assets/logo.svg'
@@ -7,31 +8,31 @@ import logo from '../assets/logo.svg'
 function Login() {
   const [userName, setUserName] = useState('')
   const [passWord, setPassWord] = useState('')
+  const navigate = useNavigate() 
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('UserName:', userName)
-    console.log('Password:', passWord)
+
+    //Verification de connexion
+    if (userName && passWord) {
+      navigate('/') //Redirection vers acceuil
+    }
   }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4 py-8">
-      <div className="bg-slate-100 rounded-lg shadow-lg p-6 ">
+      <div className="bg-slate-100 rounded-lg shadow-lg p-6">
         {/* Logo et titre */}
-        <div className=' banner-login container mx-auto '> 
-                <div className='banner-login  flex flex-row items-center  justify-center  '>
-                    <img 
-                     src={logo} 
-                     alt="logo TechChat" 
-                     className=' '
-                     /> 
-                    <div className='logo-name relative right-11 top-6  '>
-                        <h1 className='font-bold'> <span>Tech</span>Chat</h1>
-                    </div>
-        
-                </div>
-        
+        <div className="banner-login container mx-auto">
+          <div className="banner-login flex flex-row items-center justify-center">
+            <img src={logo} alt="logo TechChat" />
+            <div className="logo-name relative right-11 top-6">
+              <h1 className="font-bold">
+                <span>Tech</span>Chat
+              </h1>
             </div>
+          </div>
+        </div>
 
         {/* Titre Connexion */}
         <h1 className="text-center font-bold text-[#4630D9] text-2xl mb-6">
